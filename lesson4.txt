@@ -1,19 +1,19 @@
 import UIKit
 
-//‘генерируем массив случайных чисел
+//РЎРіРµРЅРµСЂРёСЂСѓРµРј РјР°СЃСЃРёРІ СЃР»СѓС‡Р°Р№РЅС‹С… С‡РёСЃРµР»
 let arr = (1...200).map( {_ in Int.random(in: 1...100)} )
 
-//’естовые массивы
+//РўРµСЃС‚РѕРІС‹Рµ РјР°СЃСЃРёРІС‹
 let testArray = [1, 2, 3, 4, 5]
 let testArray1 = [1, 2, 3, 4, 5, 5]
 let testArray2 = [1, 2, 3, 4, 5, 2, 5]
 
-//‚ firstIndex хранитсЯ либо индекс первого повторЯющегосЯ элемента, либо в ином случае -1
+//Р’ firstIndex С…СЂР°РЅРёС‚СЃСЏ Р»РёР±Рѕ РёРЅРґРµРєСЃ РїРµСЂРІРѕРіРѕ РїРѕРІС‚РѕСЂСЏСЋС‰РµРіРѕСЃСЏ СЌР»РµРјРµРЅС‚Р°, Р»РёР±Рѕ РІ РёРЅРѕРј СЃР»СѓС‡Р°Рµ -1
 var firstIndex = -1
 
-//”ункциЯ по поиску индекса первого повторЯющегосЯ элемента
+//Р¤СѓРЅРєС†РёСЏ РїРѕ РїРѕРёСЃРєСѓ РёРЅРґРµРєСЃР° РїРµСЂРІРѕРіРѕ РїРѕРІС‚РѕСЂСЏСЋС‰РµРіРѕСЃСЏ СЌР»РµРјРµРЅС‚Р°
 func findFisrtRepeatValue(arrayForChecking: [Int]) -> Int {
-    //work - это Labeled Statements
+     //work - СЌС‚Рѕ Labeled Statements
     work: for i in (0..<arrayForChecking.count) {
         for j in (i+1..<arrayForChecking.count) {
             if arrayForChecking[i] == arrayForChecking[j] {
@@ -24,13 +24,13 @@ func findFisrtRepeatValue(arrayForChecking: [Int]) -> Int {
     }
         return firstIndex
 }
-//Џроверим на тестах работу функции
+//РџСЂРѕРІРµСЂРёРј РЅР° С‚РµСЃС‚Р°С… СЂР°Р±РѕС‚Сѓ С„СѓРЅРєС†РёРё
 print(findFisrtRepeatValue(arrayForChecking: testArray))
 print(findFisrtRepeatValue(arrayForChecking: testArray1))
 print(findFisrtRepeatValue(arrayForChecking: testArray2))
 
-//Џосылаем основной массив в функцию
+//РџРѕСЃС‹Р»Р°РµРј РѕСЃРЅРѕРІРЅРѕР№ РјР°СЃСЃРёРІ РІ С„СѓРЅРєС†РёСЋ
 print(findFisrtRepeatValue(arrayForChecking: arr))
 
-//Џечатаем массив
+//РџРµС‡Р°С‚Р°РµРј РјР°СЃСЃРёРІ
 print(arr)
