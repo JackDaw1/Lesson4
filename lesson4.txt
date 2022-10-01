@@ -1,0 +1,36 @@
+import UIKit
+
+//Сгенерируем массив случайных чисел
+let arr = (1...200).map( {_ in Int.random(in: 1...100)} )
+
+//Тестовые массивы
+let testArray = [1, 2, 3, 4, 5]
+let testArray1 = [1, 2, 3, 4, 5, 5]
+let testArray2 = [1, 2, 3, 4, 5, 2, 5]
+
+//В firstIndex хранится либо индекс первого повторяющегося элемента, либо в ином случае -1
+var firstIndex = -1
+
+//Функция по поиску индекса первого повторяющегося элемента
+func findFisrtRepeatValue(arrayForChecking: [Int]) -> Int {
+    //work - это Labeled Statements
+    work: for i in (0..<arrayForChecking.count) {
+        for j in (i+1..<arrayForChecking.count) {
+            if arrayForChecking[i] == arrayForChecking[j] {
+                firstIndex = i
+                break work
+            }
+        }
+    }
+        return firstIndex
+}
+//Проверим на тестах работу функции
+print(findFisrtRepeatValue(arrayForChecking: testArray))
+print(findFisrtRepeatValue(arrayForChecking: testArray1))
+print(findFisrtRepeatValue(arrayForChecking: testArray2))
+
+//Посылаем основной массив в функцию
+print(findFisrtRepeatValue(arrayForChecking: arr))
+
+//Печатаем массив
+print(arr)
